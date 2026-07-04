@@ -52,7 +52,10 @@ age = st.number_input(
 if st.button("Predict Insurance in Yes/No:"):
 
     prediction = model.predict([[age]])
-
+    if prediction[0]==0:
+        prediction[0]='No'
+    else: prediction[0]='Yes'
+        
     st.success(f"Predicted Insurance Purchase: {prediction[0]}")
 
 # -----------------------------------
